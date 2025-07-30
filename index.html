@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Step 1 + CTA (Remove Black, Keep Icon)</title>
+    <title>Step 2 + CTA with Jump Link</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         body, html {
@@ -25,94 +25,102 @@
             background: #1a1a1a;
         }
         
-        .main-video {
+        .video-wrapper {
+            position: relative;
             max-width: 100%;
             max-height: 100%;
             width: auto;
             height: auto;
-            object-fit: contain;
         }
         
-        .cta-container {
+        .main-video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        
+        .cta-button {
             position: absolute;
             bottom: 15%;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 10;
-        }
-        
-        .cta-button {
-            width: 300px;
+            width: 20%;
+            min-width: 150px;
+            max-width: 300px;
             height: auto;
             cursor: pointer;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-            mix-blend-mode: screen;
-            filter: contrast(1.2) brightness(1.1);
+            transition: all 0.3s ease;
+            z-index: 100;
         }
         
         .cta-button:hover {
-            transform: scale(1.05);
+            transform: translateX(-50%) scale(1.05);
             opacity: 0.9;
         }
         
         .cta-button:active {
-            transform: scale(0.95);
+            transform: translateX(-50%) scale(0.98);
+        }
+        
+        .cta-button img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
         
         @media (max-width: 768px) {
-            .main-video {
-                width: 100%;
-                height: auto;
-            }
-            
             .cta-button {
-                width: 250px;
+                width: 25%;
+                min-width: 120px;
+                bottom: 12%;
             }
-            
-            .cta-container {
+        }
+        
+        @media (max-width: 480px) {
+            .cta-button {
+                width: 30%;
+                min-width: 100px;
                 bottom: 10%;
             }
         }
         
         @media (max-height: 600px) {
-            .main-video {
-                height: 100%;
-                width: auto;
-            }
-            
-            .cta-container {
-                bottom: 8%;
-            }
-            
             .cta-button {
-                width: 200px;
+                bottom: 20%;
+                width: 18%;
+            }
+        }
+        
+        @media (orientation: landscape) and (max-height: 500px) {
+            .cta-button {
+                bottom: 25%;
+                width: 15%;
+                min-width: 120px;
             }
         }
     </style>
 </head>
 <body>
     <div class="video-container">
-        <video 
-            class="main-video" 
-            autoplay 
-            muted 
-            loop 
-            playsinline 
-            webkit-playsinline
-            preload="auto"
-        >
-            <source src="https://page.gensparksite.com/get_upload_url/d11b368c287b37306a8565aa86c6e7700c160a144f0c37863f160a043deb4cb7/default/c370a289-5dcf-4a91-aa09-11369a7dae32" type="video/quicktime">
-            <source src="https://page.gensparksite.com/get_upload_url/d11b368c287b37306a8565aa86c6e7700c160a144f0c37863f160a043deb4cb7/default/c370a289-5dcf-4a91-aa09-11369a7dae32" type="video/mp4">
-            您的浏览器不支持视频播放。
-        </video>
-        
-        <div class="cta-container">
-            <img 
-                src="https://page.gensparksite.com/v1/base64_upload/c463ae793340b288fa7743405db87409" 
-                alt="马上申请代理" 
-                class="cta-button"
-                onclick="handleCTAClick()"
+        <div class="video-wrapper">
+            <video 
+                class="main-video" 
+                autoplay 
+                muted 
+                loop 
+                playsinline 
+                webkit-playsinline
+                preload="auto"
             >
+                <source src="https://page.gensparksite.com/get_upload_url/d11b368c287b37306a8565aa86c6e7700c160a144f0c37863f160a043deb4cb7/default/c370a289-5dcf-4a91-aa09-11369a7dae32" type="video/quicktime">
+                <source src="https://page.gensparksite.com/get_upload_url/d11b368c287b37306a8565aa86c6e7700c160a144f0c37863f160a043deb4cb7/default/c370a289-5dcf-4a91-aa09-11369a7dae32" type="video/mp4">
+                您的浏览器不支持视频播放。
+            </video>
+            
+            <a href="https://t.ly/HOBADS05" target="_blank" rel="noopener noreferrer" class="cta-button">
+                <img src="https://cdn1.genspark.ai/user-upload-image/gpt_image_generated/30b817b8-1604-4404-abb9-7371f1324126" alt="马上申请代理" />
+            </a>
         </div>
     </div>
 
@@ -130,8 +138,11 @@
                 }).catch(error => {
                     console.log('自动播放被阻止，用户需要交互才能播放');
                     // 添加点击事件以在用户交互后播放
-                    document.addEventListener('click', function() {
-                        video.play();
+                    document.addEventListener('click', function(e) {
+                        // 避免CTA按钮点击时触发视频播放
+                        if (!e.target.closest('.cta-button')) {
+                            video.play();
+                        }
                     }, { once: true });
                 });
             }
@@ -141,23 +152,43 @@
                 video.currentTime = 0;
                 video.play();
             });
+            
+            // CTA按钮点击追踪
+            document.querySelector('.cta-button').addEventListener('click', function(e) {
+                console.log('CTA按钮被点击，跳转到：https://t.ly/HOBADS05');
+                // 这里可以添加点击追踪代码
+            });
         });
         
-        // 处理窗口大小变化
+        // 处理窗口大小变化，保持CTA按钮相对位置
         window.addEventListener('resize', function() {
             const video = document.querySelector('.main-video');
-            // 触发重新计算视频尺寸
-            video.style.maxWidth = window.innerWidth + 'px';
-            video.style.maxHeight = window.innerHeight + 'px';
+            const ctaButton = document.querySelector('.cta-button');
+            
+            // 确保CTA按钮始终相对于视频保持正确位置
+            setTimeout(() => {
+                const videoRect = video.getBoundingClientRect();
+                if (videoRect.width > 0 && videoRect.height > 0) {
+                    // 视频尺寸有效，CTA按钮位置会自动通过CSS调整
+                }
+            }, 100);
         });
         
-        // CTA按钮点击处理
-        function handleCTAClick() {
-            // 这里可以添加具体的点击行为
-            alert('感谢您的兴趣！请联系我们了解代理详情。');
-            // 或者跳转到特定页面
-            // window.location.href = 'https://your-contact-page.com';
-        }
+        // 处理视频加载完成事件
+        document.querySelector('.main-video').addEventListener('loadedmetadata', function() {
+            console.log('视频元数据加载完成');
+        });
+        
+        // 错误处理
+        document.querySelector('.main-video').addEventListener('error', function(e) {
+            console.error('视频加载出错:', e);
+        });
+        
+        // 图片加载错误处理
+        document.querySelector('.cta-button img').addEventListener('error', function(e) {
+            console.error('CTA按钮图片加载出错:', e);
+            e.target.alt = '马上申请代理';
+        });
     </script>
 </body>
 </html>
