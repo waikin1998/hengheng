@@ -3,37 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Step 2 + CTA Down 2cm More</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Landing Page</title>
     <style>
-        body, html {
+        * {
             margin: 0;
             padding: 0;
-            height: 100%;
-            overflow: hidden;
+            box-sizing: border-box;
         }
-        
-        .video-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+
+        body {
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             background: #1a1a1a;
         }
-        
-        .video-wrapper {
+
+        .background-wrapper {
             position: relative;
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
-            height: auto;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        
-        .main-video {
+
+        .background-image {
             max-width: 100%;
             max-height: 100%;
             width: auto;
@@ -41,151 +44,96 @@
             object-fit: contain;
             display: block;
         }
-        
-        @keyframes float {
-            0%, 100% {
-                transform: translateX(-50%) translateY(0px);
-            }
-            50% {
-                transform: translateX(-50%) translateY(-5px);
-            }
-        }
-        
-        .cta-button {
+
+        .cta-container {
             position: absolute;
-            bottom: 8%;
+            top: 75%;
             left: 50%;
             transform: translateX(-50%);
-            width: 30%;
-            min-width: 220px;
-            max-width: 340px;
+            z-index: 100;
+        }
+
+        .cta-link {
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .cta-button {
+            width: 280px;
             height: auto;
             cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 10;
-            animation: float 3s ease-in-out infinite;
+            transition: transform 0.2s ease;
+            animation: fastFloat 1.5s ease-in-out infinite;
         }
-        
+
         .cta-button:hover {
-            transform: translateX(-50%) scale(1.05);
-            filter: brightness(1.1);
-            animation-play-state: paused;
+            transform: scale(1.02);
         }
-        
+
         .cta-button:active {
-            transform: translateX(-50%) scale(0.95);
-            animation-play-state: paused;
+            transform: scale(0.98);
         }
-        
-        .cta-button img {
-            width: 100%;
-            height: auto;
-            display: block;
+
+        @keyframes fastFloat {
+            0%, 100% { 
+                transform: translateY(0px);
+            }
+            50% { 
+                transform: translateY(-8px);
+            }
         }
-        
+
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            .main-video {
-                width: 100vw;
-                height: auto;
-                max-height: 100vh;
+            .cta-button {
+                width: 240px;
+            }
+            
+            .cta-container {
+                top: 70%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cta-button {
+                width: 200px;
+            }
+            
+            .cta-container {
+                top: 68%;
+            }
+        }
+
+        /* Landscape mobile adjustments */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .cta-container {
+                top: 65%;
             }
             
             .cta-button {
-                width: 40%;
-                min-width: 170px;
-                bottom: 6%;
+                width: 220px;
             }
         }
-        
-        @media (max-height: 600px) {
-            .main-video {
-                height: 100vh;
-                width: auto;
-                max-width: 100vw;
-            }
-            
+
+        /* Large screens */
+        @media (min-width: 1200px) {
             .cta-button {
-                width: 25%;
-                min-width: 140px;
-                bottom: 5%;
-            }
-        }
-        
-        @media (orientation: landscape) and (max-height: 500px) {
-            .cta-button {
-                width: 20%;
-                min-width: 120px;
-                bottom: 4%;
+                width: 320px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="video-container">
-        <div class="video-wrapper">
-            <video 
-                class="main-video" 
-                autoplay 
-                muted 
-                loop 
-                playsinline 
-                webkit-playsinline
-                preload="auto"
-            >
-                <source src="https://page.gensparksite.com/get_upload_url/d11b368c287b37306a8565aa86c6e7700c160a144f0c37863f160a043deb4cb7/default/c370a289-5dcf-4a91-aa09-11369a7dae32" type="video/quicktime">
-                <source src="https://page.gensparksite.com/get_upload_url/d11b368c287b37306a8565aa86c6e7700c160a144f0c37863f160a043deb4cb7/default/c370a289-5dcf-4a91-aa09-11369a7dae32" type="video/mp4">
-                您的浏览器不支持视频播放。
-            </video>
+    <div class="container">
+        <div class="background-wrapper">
+            <img src="https://page.gensparksite.com/v1/base64_upload/bba9857b07b5f215705622c3228e0a1d" alt="Background" class="background-image">
             
-            <a href="https://t.ly/HOBADS05" target="_blank" class="cta-button">
-                <img src="https://cdn1.genspark.ai/user-upload-image/gpt_image_generated/30b817b8-1604-4404-abb9-7371f1324126" alt="马上申请代理" />
-            </a>
+            <div class="cta-container">
+                <a href="https://t.ly/HOBADS05" target="_blank" class="cta-link">
+                    <img src="https://cdn1.genspark.ai/user-upload-image/rmbg_generated/0_c1580a57-3e06-4658-b77d-b9667d9088a6" alt="马上申请代理" class="cta-button">
+                </a>
+            </div>
         </div>
     </div>
-
-    <script>
-        // 确保视频自动播放
-        document.addEventListener('DOMContentLoaded', function() {
-            const video = document.querySelector('.main-video');
-            
-            // 尝试自动播放
-            const playPromise = video.play();
-            
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    console.log('视频自动播放成功');
-                }).catch(error => {
-                    console.log('自动播放被阻止，用户需要交互才能播放');
-                    // 添加点击事件以在用户交互后播放
-                    document.addEventListener('click', function() {
-                        video.play();
-                    }, { once: true });
-                });
-            }
-            
-            // 确保视频循环播放
-            video.addEventListener('ended', function() {
-                video.currentTime = 0;
-                video.play();
-            });
-        });
-        
-        // 处理窗口大小变化
-        window.addEventListener('resize', function() {
-            const video = document.querySelector('.main-video');
-            const videoWrapper = document.querySelector('.video-wrapper');
-            
-            // 确保视频容器适应新尺寸
-            setTimeout(() => {
-                video.style.maxWidth = window.innerWidth + 'px';
-                video.style.maxHeight = window.innerHeight + 'px';
-            }, 100);
-        });
-        
-        // CTA按钮点击跟踪
-        document.querySelector('.cta-button').addEventListener('click', function(e) {
-            console.log('CTA按钮被点击，跳转到:', e.currentTarget.href);
-        });
-    </script>
 </body>
 </html>
