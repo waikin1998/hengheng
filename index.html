@@ -3,26 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
-    
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '676257412093995');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=676257412093995&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
-    
+    <title>HengOngBet Landing Page</title>
     <style>
         * {
             margin: 0;
@@ -31,113 +12,66 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            overflow-x: hidden;
-        }
-
-        .background-container {
-            position: relative;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
             width: 100%;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background-image: url('https://page.gensparksite.com/v1/base64_upload/052c415f6ce6c518e63993f514c0da53');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
             background-color: #000;
-        }
-
-        .background-image {
-            width: 100%;
-            height: auto;
-            max-width: 100%;
-            object-fit: contain;
-            display: block;
-        }
-
-        .cta-container {
-            position: absolute;
-            top: 82%;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 100;
-        }
-
-        .cta-link {
-            display: inline-block;
-            text-decoration: none;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 15vh;
+            overflow: hidden;
         }
 
         .cta-button {
-            width: 250px;
-            height: auto;
             cursor: pointer;
-            transition: all 0.2s ease;
-            animation: fastFloat 1s ease-in-out infinite;
+            max-width: 300px;
+            width: 75%;
+            animation: float 3s ease-in-out infinite;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 8px 20px rgba(128, 0, 128, 0.3));
         }
 
         .cta-button:hover {
-            transform: scale(1.05);
+            transform: scale(1.1) translateY(-5px);
+            filter: drop-shadow(0 12px 25px rgba(128, 0, 128, 0.5));
         }
 
-        .cta-button:active {
-            transform: scale(0.98);
+        .cta-button img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
-        @keyframes fastFloat {
-            0%, 100% { 
+        @keyframes float {
+            0%, 100% {
                 transform: translateY(0px);
             }
-            50% { 
-                transform: translateY(-8px);
+            50% {
+                transform: translateY(-10px);
             }
         }
 
         @media (max-width: 768px) {
             .cta-button {
-                width: 200px;
+                width: 85%;
+                max-width: 280px;
             }
             
-            .cta-container {
-                top: 80%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .cta-button {
-                width: 180px;
-            }
-            
-            .cta-container {
-                top: 78%;
-            }
-        }
-
-        @media print {
             body {
-                margin: 0;
-                padding: 0;
-            }
-            
-            .background-container {
-                min-height: auto;
-                height: auto;
-            }
-            
-            .background-image {
-                max-height: none;
-                height: auto;
+                padding-bottom: 10vh;
             }
         }
     </style>
 </head>
 <body>
-    <div class="background-container">
-        <img src="https://page.gensparksite.com/v1/base64_upload/bba9857b07b5f215705622c3228e0a1d" alt="Background" class="background-image">
-        
-        <div class="cta-container">
-            <a href="https://t.ly/HOBADS05" target="_blank" class="cta-link" onclick="fbq('track', 'Lead');">
-                <img src="https://cdn1.genspark.ai/user-upload-image/rmbg_generated/0_c1580a57-3e06-4658-b77d-b9667d9088a6" alt="马上申请代理" class="cta-button">
-            </a>
-        </div>
+    <div class="cta-button">
+        <img src="https://cdn1.genspark.ai/user-upload-image/gpt_image_generated/2ff4cb98-0e4a-4a53-9e09-df1047d43d87" alt="马上申请代理">
     </div>
 </body>
 </html>
