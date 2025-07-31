@@ -3,14 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HengOngBet Landing Page</title>
+    <title>HengOngBet Landing Page - 快速浮动CTA</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             margin: 0;
             padding: 0;
@@ -25,16 +19,16 @@
             align-items: flex-end;
             justify-content: center;
             padding-bottom: 15vh;
-            overflow: hidden;
         }
 
         .cta-button {
             cursor: pointer;
             max-width: 300px;
             width: 75%;
-            animation: float 3s ease-in-out infinite;
+            animation: float 1.5s ease-in-out infinite;
             transition: transform 0.3s ease;
             filter: drop-shadow(0 8px 20px rgba(128, 0, 128, 0.3));
+            display: block;
         }
 
         .cta-button:hover {
@@ -45,7 +39,6 @@
         .cta-button img {
             width: 100%;
             height: auto;
-            display: block;
         }
 
         @keyframes float {
@@ -56,22 +49,11 @@
                 transform: translateY(-10px);
             }
         }
-
-        @media (max-width: 768px) {
-            .cta-button {
-                width: 85%;
-                max-width: 280px;
-            }
-            
-            body {
-                padding-bottom: 10vh;
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="cta-button">
-        <img src="https://cdn1.genspark.ai/user-upload-image/gpt_image_generated/2ff4cb98-0e4a-4a53-9e09-df1047d43d87" alt="马上申请代理">
-    </div>
+    <a href="https://t.ly/HOBADS07" target="_blank" class="cta-button">
+        <img src="https://cdn1.genspark.ai/user-upload-image/gpt_image_edited/27dfade1-6efe-4c43-ba28-c3fd7b0df909" alt="马上申请代理">
+    </a>
 </body>
 </html>
