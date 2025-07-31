@@ -13,41 +13,30 @@
 
         body {
             font-family: Arial, sans-serif;
-            overflow: hidden;
-            height: 100vh;
+            overflow-x: hidden;
         }
 
-        .container {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #1a1a1a;
-        }
-
-        .background-wrapper {
+        .background-container {
             position: relative;
             width: 100%;
-            height: 100%;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            background-color: #000;
         }
 
         .background-image {
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
+            width: 100%;
             height: auto;
+            max-width: 100%;
             object-fit: contain;
             display: block;
         }
 
         .cta-container {
             position: absolute;
-            top: 75%;
+            top: 82%;
             left: 50%;
             transform: translateX(-50%);
             z-index: 100;
@@ -59,15 +48,15 @@
         }
 
         .cta-button {
-            width: 280px;
+            width: 250px;
             height: auto;
             cursor: pointer;
-            transition: transform 0.2s ease;
-            animation: fastFloat 1.5s ease-in-out infinite;
+            transition: all 0.2s ease;
+            animation: fastFloat 1s ease-in-out infinite;
         }
 
         .cta-button:hover {
-            transform: scale(1.02);
+            transform: scale(1.05);
         }
 
         .cta-button:active {
@@ -83,56 +72,52 @@
             }
         }
 
-        /* Responsive adjustments */
         @media (max-width: 768px) {
-            .cta-button {
-                width: 240px;
-            }
-            
-            .cta-container {
-                top: 70%;
-            }
-        }
-
-        @media (max-width: 480px) {
             .cta-button {
                 width: 200px;
             }
             
             .cta-container {
-                top: 68%;
+                top: 80%;
             }
         }
 
-        /* Landscape mobile adjustments */
-        @media (max-width: 768px) and (orientation: landscape) {
-            .cta-container {
-                top: 65%;
+        @media (max-width: 480px) {
+            .cta-button {
+                width: 180px;
             }
             
-            .cta-button {
-                width: 220px;
+            .cta-container {
+                top: 78%;
             }
         }
 
-        /* Large screens */
-        @media (min-width: 1200px) {
-            .cta-button {
-                width: 320px;
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            
+            .background-container {
+                min-height: auto;
+                height: auto;
+            }
+            
+            .background-image {
+                max-height: none;
+                height: auto;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="background-wrapper">
-            <img src="https://page.gensparksite.com/v1/base64_upload/bba9857b07b5f215705622c3228e0a1d" alt="Background" class="background-image">
-            
-            <div class="cta-container">
-                <a href="https://t.ly/HOBADS05" target="_blank" class="cta-link">
-                    <img src="https://cdn1.genspark.ai/user-upload-image/rmbg_generated/0_c1580a57-3e06-4658-b77d-b9667d9088a6" alt="马上申请代理" class="cta-button">
-                </a>
-            </div>
+    <div class="background-container">
+        <img src="https://page.gensparksite.com/v1/base64_upload/bba9857b07b5f215705622c3228e0a1d" alt="Background" class="background-image">
+        
+        <div class="cta-container">
+            <a href="https://t.ly/HOBADS05" target="_blank" class="cta-link">
+                <img src="https://cdn1.genspark.ai/user-upload-image/rmbg_generated/0_c1580a57-3e06-4658-b77d-b9667d9088a6" alt="马上申请代理" class="cta-button">
+            </a>
         </div>
     </div>
 </body>
