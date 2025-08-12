@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HengOngBet Landing Page - 强化移动版CTA大小</title>
+    <title>HengOngBet Landing Page - 移动版CTA缩小5%恢复特效</title>
     
     <!-- Meta Pixel Code -->
     <script>
@@ -107,63 +107,36 @@
         }
 
         /* Responsive adjustments */
-        @media (max-width: 768px) and (min-width: 601px) {
+        @media (max-width: 768px) and (min-width: 481px) {
             .image-container {
                 max-width: 100%;
             }
             .cta-button {
-                bottom: 20% !important;
-                font-size: 25.2px !important;
-                padding: 6.3px 14.7px !important;
-                border-radius: 36.75px !important;
+                bottom: 20%;
+                font-size: 25.2px;
+                padding: 6.3px 14.7px;
+                border-radius: 36.75px;
             }
         }
 
-        /* 强化移动端样式 - 扩大范围到600px */
-        @media (max-width: 600px) {
-            .image-container {
-                max-width: 100% !important;
-            }
-            .cta-button {
-                bottom: 17% !important;
-                font-size: 32px !important;        /* 大幅增加字体 */
-                padding: 12px 24px !important;     /* 大幅增加内边距 */
-                border-radius: 45px !important;    /* 增加圆角 */
-                min-width: 280px !important;       /* 确保最小宽度 */
-                box-shadow: 0 12px 30px rgba(255, 215, 0, 0.4) !important;
-                filter: drop-shadow(0 12px 30px rgba(255, 215, 0, 0.4)) !important;
-            }
-        }
-
-        /* 超小屏幕进一步强化 */
         @media (max-width: 480px) {
-            .cta-button {
-                font-size: 34px !important;        /* 更大字体 */
-                padding: 14px 28px !important;     /* 更大内边距 */
-                min-width: 300px !important;       /* 更大最小宽度 */
-                border-radius: 50px !important;
-                transform: translateX(-50%) scale(1.1) !important; /* 默认放大 */
+            .image-container {
+                max-width: 100%;
             }
-        }
-
-        /* 调试信息 - 仅在移动设备显示 */
-        @media (max-width: 600px) {
-            .debug-info {
-                position: fixed;
-                top: 10px;
-                right: 10px;
-                background: rgba(255, 255, 255, 0.8);
-                padding: 5px;
-                border-radius: 5px;
-                font-size: 12px;
-                color: black;
-                z-index: 1000;
+            .cta-button {
+                bottom: 17%;
+                font-size: 24.20px;
+                padding: 5.50px 13.19px;
+                border-radius: 36.65px;
+            }
+            
+            .cta-button:hover {
+                transform: translateX(-50%) scale(1.08) translateY(-3px);
             }
         }
     </style>
 </head>
 <body>
-    <div class="debug-info">Mobile: Enhanced CTA</div>
     <div class="image-container">
         <img src="https://page.gensparksite.com/v1/base64_upload/fe9708dc56662fa55ac259cb354339b0" alt="HengOngBet Welcome Bonus" class="background-image" onload="imageLoaded()">
         <a href="https://hob07.wasap.my" target="_blank" class="cta-button" id="ctaButton">
@@ -190,12 +163,6 @@
                 imageLoaded();
             }
         });
-
-        // 移动端调试
-        if (window.innerWidth <= 600) {
-            console.log('Mobile enhanced CTA loaded');
-            console.log('Screen width:', window.innerWidth);
-        }
     </script>
 </body>
 </html>
