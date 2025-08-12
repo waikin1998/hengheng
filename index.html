@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HengOngBet Landing Page - 移动版CTA下移0.5cm</title>
+    <title>HengOngBet Landing Page - CTA紧凑设计</title>
     
     <!-- Meta Pixel Code -->
     <script>
@@ -77,31 +77,36 @@
             -o-transform: translateX(-50%);
             transform: translateX(-50%);
             cursor: pointer;
-            max-width: 380px;
-            width: 28%;
-            min-width: 240px;
+            
             -webkit-animation: pulse 1.5s ease-in-out infinite;
             -moz-animation: pulse 1.5s ease-in-out infinite;
+            -ms-animation: pulse 1.5s ease-in-out infinite;
+            -o-animation: pulse 1.5s ease-in-out infinite;
             animation: pulse 1.5s ease-in-out infinite;
+            
             -webkit-transition: transform 0.3s ease, opacity 0.3s ease;
             -moz-transition: transform 0.3s ease, opacity 0.3s ease;
             -ms-transition: transform 0.3s ease, opacity 0.3s ease;
             -o-transition: transform 0.3s ease, opacity 0.3s ease;
             transition: transform 0.3s ease, opacity 0.3s ease;
-            -webkit-filter: drop-shadow(0 8px 20px rgba(255, 215, 0, 0.3));
+            
             filter: drop-shadow(0 8px 20px rgba(255, 215, 0, 0.3));
+            -webkit-filter: drop-shadow(0 8px 20px rgba(255, 215, 0, 0.3));
+            
             display: block;
             text-decoration: none;
             opacity: 0;
             
-            /* Button Styling */
+            /* Compact Button Styling */
             background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
             background: -webkit-linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
             background: -moz-linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
-            -webkit-border-radius: 50px;
-            -moz-border-radius: 50px;
-            border-radius: 50px;
-            padding: 16px 35px;
+            
+            -webkit-border-radius: 25px;
+            -moz-border-radius: 25px;
+            border-radius: 25px;
+            
+            padding: 8px 16px;
             color: white;
             font-family: 'Impact', 'Arial Black', 'Helvetica', sans-serif;
             font-size: 26px;
@@ -111,13 +116,18 @@
             letter-spacing: 0.5px;
             word-spacing: -1px;
             white-space: nowrap;
+            
             -webkit-box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
             -moz-box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
             box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+            
             border: none;
+            
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            -moz-osx-font-smoothing: grayscale;
+            
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
 
         .cta-button.show {
@@ -130,8 +140,10 @@
             -ms-transform: translateX(-50%) scale(1.1) translateY(-5px);
             -o-transform: translateX(-50%) scale(1.1) translateY(-5px);
             transform: translateX(-50%) scale(1.1) translateY(-5px);
-            -webkit-filter: drop-shadow(0 12px 25px rgba(255, 215, 0, 0.5));
+            
             filter: drop-shadow(0 12px 25px rgba(255, 215, 0, 0.5));
+            -webkit-filter: drop-shadow(0 12px 25px rgba(255, 215, 0, 0.5));
+            
             -webkit-box-shadow: 0 12px 25px rgba(255, 215, 0, 0.5);
             -moz-box-shadow: 0 12px 25px rgba(255, 215, 0, 0.5);
             box-shadow: 0 12px 25px rgba(255, 215, 0, 0.5);
@@ -181,24 +193,19 @@
             .image-container {
                 max-width: 100%;
             }
+            
             .cta-button {
-                width: 40%;
-                min-width: 200px;
-                max-width: 280px;
                 bottom: 20%;
                 font-size: 24px;
-                padding: 14px 30px;
+                padding: 7px 14px;
             }
         }
 
         @media (max-width: 480px) {
             .cta-button {
-                width: 70%;
-                min-width: 200px;
-                max-width: 340px;
-                bottom: calc(20% - 15px);
+                bottom: 17%;
                 font-size: 22px;
-                padding: 12px 25px;
+                padding: 6px 12px;
             }
         }
     </style>
@@ -213,39 +220,34 @@
 
     <script>
         function imageLoaded() {
-            const img = document.querySelector('.background-image');
-            const ctaButton = document.getElementById('ctaButton');
+            var img = document.querySelector('.background-image');
+            var ctaButton = document.getElementById('ctaButton');
             
             // 显示图片和按钮
             img.classList.add('loaded');
-            setTimeout(() => {
+            setTimeout(function() {
                 ctaButton.classList.add('show');
             }, 100);
         }
 
         // 预加载图片确保加载完成
         window.addEventListener('load', function() {
-            const img = document.querySelector('.background-image');
+            var img = document.querySelector('.background-image');
             if (img.complete) {
                 imageLoaded();
             }
         });
 
-        // 防止双击缩放（移动端）
-        document.addEventListener('touchstart', function (event) {
-            if (event.touches.length > 1) {
-                event.preventDefault();
-            }
-        });
-
-        let lastTouchEnd = 0;
-        document.addEventListener('touchend', function (event) {
-            const now = (new Date()).getTime();
-            if (now - lastTouchEnd <= 300) {
-                event.preventDefault();
-            }
-            lastTouchEnd = now;
-        }, false);
+        // 添加触摸事件支持
+        if ('ontouchstart' in window) {
+            var ctaButton = document.getElementById('ctaButton');
+            ctaButton.addEventListener('touchstart', function() {
+                this.style.transform = 'translateX(-50%) scale(1.05)';
+            });
+            ctaButton.addEventListener('touchend', function() {
+                this.style.transform = 'translateX(-50%) scale(1)';
+            });
+        }
     </script>
 </body>
 </html>
