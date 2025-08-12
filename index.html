@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HengOngBet Landing Page - CTA固定背景图位置</title>
+    <title>HengOngBet Landing Page - CTA恢复大小下移3cm</title>
     
     <!-- Meta Pixel Code -->
     <script>
@@ -31,22 +31,21 @@
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
+            align-items: flex-start;
         }
 
         .image-container {
             position: relative;
             display: inline-block;
             max-width: 800px;
-            width: 100%;
-            height: auto;
+            min-height: 100vh;
         }
 
         .background-image {
             width: 100%;
             height: auto;
             display: block;
+            max-width: 100%;
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -57,8 +56,7 @@
 
         .cta-button {
             position: absolute;
-            /* 固定在背景图的特定位置 - 距离底部25%，水平居中 */
-            bottom: 25%;
+            bottom: 22%;
             left: 50%;
             transform: translateX(-50%);
             cursor: pointer;
@@ -71,11 +69,11 @@
             
             /* Button Styling */
             background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
-            border-radius: 36px;
-            padding: 4px 10px;
+            border-radius: 36.75px;
+            padding: 8.4px 16.8px;
             color: white;
             font-family: 'Impact', 'Arial Black', 'Helvetica', sans-serif;
-            font-size: 28px;
+            font-size: 27.3px;
             font-weight: 900;
             text-align: center;
             text-transform: uppercase;
@@ -108,36 +106,28 @@
             }
         }
 
-        /* 响应式调整 - 保持相对于背景图的位置 */
-        @media (max-width: 768px) {
+        /* Responsive adjustments */
+        @media (max-width: 768px) and (min-width: 481px) {
             .image-container {
                 max-width: 100%;
             }
             .cta-button {
-                font-size: 24px;
-                padding: 3px 8px;
-                border-radius: 32px;
+                bottom: 17%;
+                font-size: 25.2px;
+                padding: 6.3px 14.7px;
+                border-radius: 36.75px;
             }
         }
 
         @media (max-width: 480px) {
-            .cta-button {
-                font-size: 22px;
-                padding: 3px 7px;
-                border-radius: 30px;
-                /* 保持相同的相对位置 - 距离背景图底部25% */
-                bottom: 25%;
+            .image-container {
+                max-width: 100%;
             }
-        }
-
-        /* 确保在所有设备上CTA都在背景图的相同相对位置 */
-        @media (max-width: 360px) {
             .cta-button {
-                font-size: 20px;
-                padding: 2px 6px;
-                border-radius: 28px;
-                /* 始终保持在背景图底部25%的位置 */
-                bottom: 25%;
+                bottom: 8%;
+                font-size: 32px;
+                padding: 6px 12px;
+                border-radius: 38px;
             }
         }
     </style>
@@ -168,17 +158,6 @@
             if (img.complete) {
                 imageLoaded();
             }
-        });
-
-        // 确保在设备旋转时重新计算位置
-        window.addEventListener('orientationchange', function() {
-            setTimeout(function() {
-                // 触发重新布局
-                const container = document.querySelector('.image-container');
-                container.style.display = 'none';
-                container.offsetHeight; // 触发重排
-                container.style.display = 'inline-block';
-            }, 100);
         });
     </script>
 </body>
