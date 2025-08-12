@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HengOngBet Landing Page - 更新Pixel ID</title>
+    <title>HengOngBet Landing Page - 修复CTA走位问题</title>
     
     <!-- Meta Pixel Code -->
     <script>
@@ -38,6 +38,7 @@
             position: relative;
             display: inline-block;
             max-width: 100%;
+            min-height: 100vh;
         }
 
         .background-image {
@@ -45,6 +46,12 @@
             height: auto;
             display: block;
             max-width: 100%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .background-image.loaded {
+            opacity: 1;
         }
 
         .cta-button {
@@ -57,10 +64,11 @@
             width: 25%;
             min-width: 220px;
             animation: pulse 1.5s ease-in-out infinite;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.3s ease;
             filter: drop-shadow(0 8px 20px rgba(128, 0, 128, 0.3));
             display: block;
             text-decoration: none;
+            opacity: 0;
             
             /* Button Styling */
             background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
@@ -75,6 +83,10 @@
             letter-spacing: 1px;
             box-shadow: 0 8px 20px rgba(128, 0, 128, 0.3);
             border: none;
+        }
+
+        .cta-button.show {
+            opacity: 1;
         }
 
         .cta-button:hover {
@@ -118,10 +130,31 @@
 </head>
 <body>
     <div class="image-container">
-        <img src="https://page.gensparksite.com/v1/base64_upload/fe9708dc56662fa55ac259cb354339b0" alt="HengOngBet Welcome Bonus" class="background-image">
-        <a href="https://hob07.wasap.my" target="_blank" class="cta-button">
+        <img src="https://page.gensparksite.com/v1/base64_upload/fe9708dc56662fa55ac259cb354339b0" alt="HengOngBet Welcome Bonus" class="background-image" onload="imageLoaded()">
+        <a href="https://hob07.wasap.my" target="_blank" class="cta-button" id="ctaButton">
             CLAIM BONUS
         </a>
     </div>
+
+    <script>
+        function imageLoaded() {
+            const img = document.querySelector('.background-image');
+            const ctaButton = document.getElementById('ctaButton');
+            
+            // 显示图片和按钮
+            img.classList.add('loaded');
+            setTimeout(() => {
+                ctaButton.classList.add('show');
+            }, 100);
+        }
+
+        // 预加载图片确保加载完成
+        window.addEventListener('load', function() {
+            const img = document.querySelector('.background-image');
+            if (img.complete) {
+                imageLoaded();
+            }
+        });
+    </script>
 </body>
 </html>
