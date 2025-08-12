@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HengOngBet Landing Page - 手机版CTA下移3cm恢复特效</title>
+    <title>HengOngBet Landing Page - 手机版CTA稍微下移</title>
     
     <!-- Meta Pixel Code -->
     <script>
@@ -61,7 +61,7 @@
             transform: translateX(-50%);
             cursor: pointer;
             animation: pulse 1.5s ease-in-out infinite;
-            transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.3s ease;
             filter: drop-shadow(0 8px 20px rgba(255, 215, 0, 0.3));
             display: block;
             text-decoration: none;
@@ -69,11 +69,11 @@
             
             /* Button Styling */
             background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
-            border-radius: 35px;
+            border-radius: 36.75px;
             padding: 4px 12px;
             color: white;
             font-family: 'Impact', 'Arial Black', 'Helvetica', sans-serif;
-            font-size: 27px;
+            font-size: 27.3px;
             font-weight: 900;
             text-align: center;
             text-transform: uppercase;
@@ -97,11 +97,6 @@
             box-shadow: 0 12px 25px rgba(255, 215, 0, 0.5);
         }
 
-        .cta-button:active {
-            transform: translateX(-50%) scale(1.02);
-            filter: drop-shadow(0 5px 15px rgba(255, 215, 0, 0.8));
-        }
-
         @keyframes pulse {
             0%, 100% {
                 transform: translateX(-50%) scale(1);
@@ -118,9 +113,9 @@
             }
             .cta-button {
                 bottom: 20%;
-                font-size: 25px;
+                font-size: 25.2px;
                 padding: 3px 10px;
-                border-radius: 35px;
+                border-radius: 36.75px;
             }
         }
 
@@ -129,30 +124,10 @@
                 max-width: 100%;
             }
             .cta-button {
-                bottom: calc(17% - 3cm); /* 下移3cm */
+                bottom: 14%;
                 font-size: 32px;
                 padding: 4px 10px;
-                border-radius: 35px;
-                /* 强化动画效果 */
-                animation: pulse 1.5s ease-in-out infinite;
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                filter: drop-shadow(0 10px 25px rgba(255, 215, 0, 0.4));
-                box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
-            }
-            
-            .cta-button:hover {
-                transform: translateX(-50%) scale(1.08) translateY(-8px);
-                filter: drop-shadow(0 15px 35px rgba(255, 215, 0, 0.6));
-                box-shadow: 0 15px 35px rgba(255, 215, 0, 0.6);
-            }
-        }
-
-        /* 安卓Chrome优化 */
-        @supports (-webkit-appearance: none) {
-            .cta-button {
-                -webkit-transform-style: preserve-3d;
-                -webkit-backface-visibility: hidden;
-                will-change: transform, filter;
+                border-radius: 36.75px;
             }
         }
     </style>
@@ -184,17 +159,6 @@
                 imageLoaded();
             }
         });
-
-        // 优化移动端体验
-        if ('ontouchstart' in window) {
-            const ctaButton = document.getElementById('ctaButton');
-            ctaButton.addEventListener('touchstart', function() {
-                this.style.transform = 'translateX(-50%) scale(1.02)';
-            });
-            ctaButton.addEventListener('touchend', function() {
-                this.style.transform = '';
-            });
-        }
     </script>
 </body>
 </html>
