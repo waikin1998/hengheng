@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HengOngBet Landing Page - CTA紧凑设计</title>
+    <title>HengOngBet Landing Page - CTA放大5%</title>
     
     <!-- Meta Pixel Code -->
     <script>
@@ -24,12 +24,6 @@
     <!-- End Meta Pixel Code -->
     
     <style>
-        * {
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-
         body {
             margin: 0;
             padding: 0;
@@ -38,15 +32,12 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
         .image-container {
             position: relative;
             display: inline-block;
             max-width: 800px;
-            width: 100%;
             min-height: 100vh;
         }
 
@@ -56,11 +47,11 @@
             display: block;
             max-width: 100%;
             opacity: 0;
+            transition: opacity 0.3s ease;
             -webkit-transition: opacity 0.3s ease;
             -moz-transition: opacity 0.3s ease;
             -ms-transition: opacity 0.3s ease;
             -o-transition: opacity 0.3s ease;
-            transition: opacity 0.3s ease;
         }
 
         .background-image.loaded {
@@ -77,57 +68,51 @@
             -o-transform: translateX(-50%);
             transform: translateX(-50%);
             cursor: pointer;
-            
+            width: auto;
             -webkit-animation: pulse 1.5s ease-in-out infinite;
             -moz-animation: pulse 1.5s ease-in-out infinite;
             -ms-animation: pulse 1.5s ease-in-out infinite;
             -o-animation: pulse 1.5s ease-in-out infinite;
             animation: pulse 1.5s ease-in-out infinite;
-            
             -webkit-transition: transform 0.3s ease, opacity 0.3s ease;
             -moz-transition: transform 0.3s ease, opacity 0.3s ease;
             -ms-transition: transform 0.3s ease, opacity 0.3s ease;
             -o-transition: transform 0.3s ease, opacity 0.3s ease;
             transition: transform 0.3s ease, opacity 0.3s ease;
-            
-            filter: drop-shadow(0 8px 20px rgba(255, 215, 0, 0.3));
             -webkit-filter: drop-shadow(0 8px 20px rgba(255, 215, 0, 0.3));
-            
+            filter: drop-shadow(0 8px 20px rgba(255, 215, 0, 0.3));
             display: block;
             text-decoration: none;
             opacity: 0;
             
-            /* Compact Button Styling */
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+            /* Button Styling */
             background: -webkit-linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
             background: -moz-linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
-            
-            -webkit-border-radius: 25px;
-            -moz-border-radius: 25px;
-            border-radius: 25px;
-            
-            padding: 8px 16px;
+            background: -ms-linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+            background: -o-linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
+            -webkit-border-radius: 35px;
+            -moz-border-radius: 35px;
+            border-radius: 35px;
+            padding: 8.4px 16.8px;
             color: white;
             font-family: 'Impact', 'Arial Black', 'Helvetica', sans-serif;
-            font-size: 26px;
-            font-weight: normal;
+            font-size: 27.3px;
+            font-weight: 900;
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             word-spacing: -1px;
             white-space: nowrap;
-            
             -webkit-box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
             -moz-box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
             box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
-            
             border: none;
-            
+            -webkit-text-stroke: 0.5px;
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
 
         .cta-button.show {
@@ -140,10 +125,8 @@
             -ms-transform: translateX(-50%) scale(1.1) translateY(-5px);
             -o-transform: translateX(-50%) scale(1.1) translateY(-5px);
             transform: translateX(-50%) scale(1.1) translateY(-5px);
-            
-            filter: drop-shadow(0 12px 25px rgba(255, 215, 0, 0.5));
             -webkit-filter: drop-shadow(0 12px 25px rgba(255, 215, 0, 0.5));
-            
+            filter: drop-shadow(0 12px 25px rgba(255, 215, 0, 0.5));
             -webkit-box-shadow: 0 12px 25px rgba(255, 215, 0, 0.5);
             -moz-box-shadow: 0 12px 25px rgba(255, 215, 0, 0.5);
             box-shadow: 0 12px 25px rgba(255, 215, 0, 0.5);
@@ -196,16 +179,16 @@
             
             .cta-button {
                 bottom: 20%;
-                font-size: 24px;
-                padding: 7px 14px;
+                font-size: 25.2px;
+                padding: 6.3px 14.7px;
             }
         }
 
         @media (max-width: 480px) {
             .cta-button {
                 bottom: 17%;
-                font-size: 22px;
-                padding: 6px 12px;
+                font-size: 23.1px;
+                padding: 5.25px 12.6px;
             }
         }
     </style>
@@ -220,34 +203,23 @@
 
     <script>
         function imageLoaded() {
-            var img = document.querySelector('.background-image');
-            var ctaButton = document.getElementById('ctaButton');
+            const img = document.querySelector('.background-image');
+            const ctaButton = document.getElementById('ctaButton');
             
             // 显示图片和按钮
             img.classList.add('loaded');
-            setTimeout(function() {
+            setTimeout(() => {
                 ctaButton.classList.add('show');
             }, 100);
         }
 
         // 预加载图片确保加载完成
         window.addEventListener('load', function() {
-            var img = document.querySelector('.background-image');
+            const img = document.querySelector('.background-image');
             if (img.complete) {
                 imageLoaded();
             }
         });
-
-        // 添加触摸事件支持
-        if ('ontouchstart' in window) {
-            var ctaButton = document.getElementById('ctaButton');
-            ctaButton.addEventListener('touchstart', function() {
-                this.style.transform = 'translateX(-50%) scale(1.05)';
-            });
-            ctaButton.addEventListener('touchend', function() {
-                this.style.transform = 'translateX(-50%) scale(1)';
-            });
-        }
     </script>
 </body>
 </html>
