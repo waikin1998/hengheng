@@ -2,8 +2,8 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>HengOngBet Landing Page - 安卓兼容优化</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HengOngBet Landing Page - 手机版CTA下移3cm恢复特效</title>
     
     <!-- Meta Pixel Code -->
     <script>
@@ -24,35 +24,21 @@
     <!-- End Meta Pixel Code -->
     
     <style>
-        * {
-            box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-        }
-        
         body {
             margin: 0;
             padding: 0;
             background-color: #000;
             min-height: 100vh;
-            min-height: 100dvh;
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            font-family: Arial, sans-serif;
-            overflow-x: hidden;
-            -webkit-text-size-adjust: 100%;
-            -ms-text-size-adjust: 100%;
         }
 
         .image-container {
             position: relative;
-            display: block;
+            display: inline-block;
             max-width: 800px;
             min-height: 100vh;
-            min-height: 100dvh;
-            width: 100%;
-            margin: 0 auto;
         }
 
         .background-image {
@@ -62,8 +48,6 @@
             max-width: 100%;
             opacity: 0;
             transition: opacity 0.3s ease;
-            -webkit-transition: opacity 0.3s ease;
-            vertical-align: top;
         }
 
         .background-image.loaded {
@@ -72,28 +56,20 @@
 
         .cta-button {
             position: absolute;
-            bottom: 25vh;
+            bottom: 25%;
             left: 50%;
-            -webkit-transform: translateX(-50%);
-            -moz-transform: translateX(-50%);
-            -ms-transform: translateX(-50%);
             transform: translateX(-50%);
             cursor: pointer;
-            -webkit-animation: pulse 1.5s ease-in-out infinite;
             animation: pulse 1.5s ease-in-out infinite;
-            -webkit-transition: all 0.3s ease;
-            transition: all 0.3s ease;
-            -webkit-filter: drop-shadow(0 8px 20px rgba(255, 215, 0, 0.3));
+            transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
             filter: drop-shadow(0 8px 20px rgba(255, 215, 0, 0.3));
             display: block;
             text-decoration: none;
             opacity: 0;
-            z-index: 100;
             
             /* Button Styling */
             background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
-            background: -webkit-linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
-            border-radius: 36px;
+            border-radius: 35px;
             padding: 4px 12px;
             color: white;
             font-family: 'Impact', 'Arial Black', 'Helvetica', sans-serif;
@@ -103,74 +79,48 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
-            -webkit-box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
             border: none;
             white-space: nowrap;
             width: auto;
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
             -webkit-text-stroke: 0.3px;
-            -webkit-tap-highlight-color: transparent;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            user-select: none;
         }
 
         .cta-button.show {
             opacity: 1;
         }
 
-        .cta-button:hover,
-        .cta-button:active {
-            -webkit-transform: translateX(-50%) scale(1.1) translateY(-5px);
-            -moz-transform: translateX(-50%) scale(1.1) translateY(-5px);
+        .cta-button:hover {
             transform: translateX(-50%) scale(1.1) translateY(-5px);
-            -webkit-filter: drop-shadow(0 12px 25px rgba(255, 215, 0, 0.5));
             filter: drop-shadow(0 12px 25px rgba(255, 215, 0, 0.5));
             box-shadow: 0 12px 25px rgba(255, 215, 0, 0.5);
-            -webkit-box-shadow: 0 12px 25px rgba(255, 215, 0, 0.5);
         }
 
-        @-webkit-keyframes pulse {
-            0%, 100% {
-                -webkit-transform: translateX(-50%) scale(1);
-                transform: translateX(-50%) scale(1);
-            }
-            50% {
-                -webkit-transform: translateX(-50%) scale(1.05);
-                transform: translateX(-50%) scale(1.05);
-            }
+        .cta-button:active {
+            transform: translateX(-50%) scale(1.02);
+            filter: drop-shadow(0 5px 15px rgba(255, 215, 0, 0.8));
         }
 
         @keyframes pulse {
             0%, 100% {
-                -webkit-transform: translateX(-50%) scale(1);
                 transform: translateX(-50%) scale(1);
             }
             50% {
-                -webkit-transform: translateX(-50%) scale(1.05);
                 transform: translateX(-50%) scale(1.05);
             }
         }
 
-        /* Android Chrome specific fixes */
-        @media screen and (-webkit-min-device-pixel-ratio: 0) {
-            .cta-button {
-                -webkit-transform: translate3d(-50%, 0, 0);
-                transform: translate3d(-50%, 0, 0);
-            }
-        }
-
-        /* Responsive adjustments with Android considerations */
+        /* Responsive adjustments */
         @media (max-width: 768px) and (min-width: 481px) {
             .image-container {
                 max-width: 100%;
             }
             .cta-button {
-                bottom: 20vh;
+                bottom: 20%;
                 font-size: 25px;
                 padding: 3px 10px;
-                border-radius: 34px;
+                border-radius: 35px;
             }
         }
 
@@ -179,32 +129,30 @@
                 max-width: 100%;
             }
             .cta-button {
-                bottom: 17vh;
-                bottom: calc(17vh + env(safe-area-inset-bottom));
-                font-size: 32px !important;
-                padding: 4px 10px !important;
-                border-radius: 40px !important;
-                min-width: 200px;
-                -webkit-transform: translate3d(-50%, 0, 0) !important;
-                transform: translate3d(-50%, 0, 0) !important;
+                bottom: calc(17% - 3cm); /* 下移3cm */
+                font-size: 32px;
+                padding: 4px 10px;
+                border-radius: 35px;
+                /* 强化动画效果 */
+                animation: pulse 1.5s ease-in-out infinite;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                filter: drop-shadow(0 10px 25px rgba(255, 215, 0, 0.4));
+                box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
+            }
+            
+            .cta-button:hover {
+                transform: translateX(-50%) scale(1.08) translateY(-8px);
+                filter: drop-shadow(0 15px 35px rgba(255, 215, 0, 0.6));
+                box-shadow: 0 15px 35px rgba(255, 215, 0, 0.6);
             }
         }
 
-        /* Android specific media queries */
-        @media (max-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+        /* 安卓Chrome优化 */
+        @supports (-webkit-appearance: none) {
             .cta-button {
-                bottom: 15vh !important;
-                font-size: 34px !important;
-                padding: 6px 12px !important;
-            }
-        }
-
-        /* High DPI Android devices */
-        @media (max-width: 480px) and (-webkit-min-device-pixel-ratio: 3) {
-            .cta-button {
-                bottom: 18vh !important;
-                font-size: 36px !important;
-                padding: 8px 14px !important;
+                -webkit-transform-style: preserve-3d;
+                -webkit-backface-visibility: hidden;
+                will-change: transform, filter;
             }
         }
     </style>
@@ -237,20 +185,14 @@
             }
         });
 
-        // Android Chrome specific fixes
-        if (/Android.*Chrome/i.test(navigator.userAgent)) {
-            document.addEventListener('DOMContentLoaded', function() {
-                const ctaButton = document.getElementById('ctaButton');
-                if (ctaButton) {
-                    ctaButton.style.bottom = window.innerHeight * 0.17 + 'px';
-                }
+        // 优化移动端体验
+        if ('ontouchstart' in window) {
+            const ctaButton = document.getElementById('ctaButton');
+            ctaButton.addEventListener('touchstart', function() {
+                this.style.transform = 'translateX(-50%) scale(1.02)';
             });
-            
-            window.addEventListener('resize', function() {
-                const ctaButton = document.getElementById('ctaButton');
-                if (ctaButton && window.innerWidth <= 480) {
-                    ctaButton.style.bottom = window.innerHeight * 0.17 + 'px';
-                }
+            ctaButton.addEventListener('touchend', function() {
+                this.style.transform = '';
             });
         }
     </script>
