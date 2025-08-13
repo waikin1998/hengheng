@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HengOngBet Landing Page - 添加Contact事件</title>
+    <title>HengOngBet - Welcome Bonus 100%</title>
     
     <!-- Meta Pixel Code -->
     <script>
@@ -141,24 +141,27 @@
     </div>
 
     <script>
-        // 追踪事件函数
-        function trackEvents() {
+        // Lead事件追踪函数
+        function trackLead() {
             if (typeof fbq !== 'undefined') {
-                // 触发Lead事件
                 fbq('track', 'Lead', {
                     content_name: 'HengOngBet CTA Click',
                     content_category: 'Gaming',
                     value: 1
                 });
-                
-                // 触发Contact事件
+                console.log('Lead event tracked');
+            }
+        }
+
+        // Contact事件追踪函数
+        function trackContact() {
+            if (typeof fbq !== 'undefined') {
                 fbq('track', 'Contact', {
-                    content_name: 'HengOngBet Contact Request',
+                    content_name: 'HengOngBet WhatsApp Contact',
                     content_category: 'Gaming',
-                    value: 1
+                    contact_method: 'WhatsApp'
                 });
-                
-                console.log('Lead and Contact events tracked');
+                console.log('Contact event tracked');
             }
         }
 
@@ -174,12 +177,16 @@
             
             // 添加事件追踪到CTA按钮
             ctaButton.addEventListener('click', function(e) {
-                trackEvents();
-                // 让事件有时间发送后再跳转
-                setTimeout(function() {
-                    window.open(ctaButton.href, '_blank');
-                }, 150);
                 e.preventDefault();
+                
+                // 触发Lead和Contact事件
+                trackLead();
+                trackContact();
+                
+                // 等待事件发送后再跳转
+                setTimeout(function() {
+                    window.open('https://hob07.wasap.my', '_blank');
+                }, 150);
             });
         }
 
