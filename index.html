@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HengOngBet Landing Page - 手机版CTA上移2cm</title>
+    <title>HengOngBet Landing Page - 更新Meta Pixel</title>
     
     <!-- Meta Pixel Code -->
     <script>
@@ -62,7 +62,7 @@
             transform: translateX(-50%);
             cursor: pointer;
             animation: pulse 1.5s ease-in-out infinite;
-            transition: transform 0.3s ease, opacity 0.3s ease;
+            transition: all 0.3s ease;
             filter: drop-shadow(0 8px 20px rgba(255, 215, 0, 0.3));
             display: block;
             text-decoration: none;
@@ -98,6 +98,10 @@
             box-shadow: 0 12px 25px rgba(255, 215, 0, 0.5);
         }
 
+        .cta-button:active {
+            transform: translateX(-50%) scale(0.95);
+        }
+
         @keyframes pulse {
             0%, 100% {
                 transform: translateX(-50%) scale(1);
@@ -116,7 +120,6 @@
                 bottom: 12%;
                 font-size: 25.2px;
                 padding: 6.3px 14.7px;
-                border-radius: 36.75px;
             }
         }
 
@@ -125,10 +128,9 @@
                 max-width: 100%;
             }
             .cta-button {
-                bottom: 13%; /* 从6%上移到13% (上移约2cm) */
+                bottom: 12%;
                 font-size: 32px;
                 padding: 6px 14px;
-                border-radius: 36.75px;
             }
         }
     </style>
