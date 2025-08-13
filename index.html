@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HengOngBet Landing Page - 添加Lead事件追踪</title>
+    <title>HengOngBet Landing Page - 添加Contact事件</title>
     
     <!-- Meta Pixel Code -->
     <script>
@@ -141,15 +141,24 @@
     </div>
 
     <script>
-        // Lead事件追踪函数
-        function trackLead() {
+        // 追踪事件函数
+        function trackEvents() {
             if (typeof fbq !== 'undefined') {
+                // 触发Lead事件
                 fbq('track', 'Lead', {
                     content_name: 'HengOngBet CTA Click',
                     content_category: 'Gaming',
                     value: 1
                 });
-                console.log('Lead event tracked');
+                
+                // 触发Contact事件
+                fbq('track', 'Contact', {
+                    content_name: 'HengOngBet Contact Request',
+                    content_category: 'Gaming',
+                    value: 1
+                });
+                
+                console.log('Lead and Contact events tracked');
             }
         }
 
@@ -163,13 +172,13 @@
                 ctaButton.classList.add('show');
             }, 100);
             
-            // 添加Lead事件追踪到CTA按钮
+            // 添加事件追踪到CTA按钮
             ctaButton.addEventListener('click', function(e) {
-                trackLead();
-                // 让Lead事件有时间发送后再跳转
+                trackEvents();
+                // 让事件有时间发送后再跳转
                 setTimeout(function() {
                     window.open(ctaButton.href, '_blank');
-                }, 100);
+                }, 150);
                 e.preventDefault();
             });
         }
