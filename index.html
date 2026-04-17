@@ -1,202 +1,388 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-Hant-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HengOngBet - Welcome Bonus 100%</title>
-    
     <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '751012561151511');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=751012561151511&ev=PageView&noscript=1"
-    /></noscript>
+<!--    <script src="static/js/face1.js" async=""></script>-->
+<!--    <script async="" src="static/js/fbevents.js"></script>-->
+<!--    <script>-->
+<!--        !function (f, b, e, v, n, t, s) {-->
+<!--            if (f.fbq) return;-->
+<!--            n = f.fbq = function () {-->
+<!--                n.callMethod ?-->
+<!--                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)-->
+<!--            };-->
+<!--            if (!f._fbq) f._fbq = n;-->
+<!--            n.push = n;-->
+<!--            n.loaded = !0;-->
+<!--            n.version = '2.0';-->
+<!--            n.queue = [];-->
+<!--            t = b.createElement(e);-->
+<!--            t.async = !0;-->
+<!--            t.src = v;-->
+<!--            s = b.getElementsByTagName(e)[0];-->
+<!--            s.parentNode.insertBefore(t, s)-->
+<!--        }(window, document, 'script',-->
+<!--            'static/js/fbevents.js');-->
+<!--        fbq('init', '937048969257740');-->
+<!--        fbq('track', 'PageView');-->
+<!--        fbq('init', '1451327959366219');-->
+<!--        fbq('track', 'PageView');-->
+<!--    </script>-->
     <!-- End Meta Pixel Code -->
-    
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #000;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
+    <meta charset="utf-8">
+    <script>
+
+        function addCartEvent() {
+
+            fbq('track', 'Purchase', {value: 1, currency: 'USD',});
+            fbq('track', 'AddToCart');
+
+
         }
 
-        .image-container {
-            position: relative;
-            display: inline-block;
-            max-width: 800px;
-            min-height: 100vh;
-        }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0a0610">
+    <title>緣愛・深夜私密約會 | 18+ | Secret Match</title>
+    <meta name="description"
+          content="台灣頂級約炮社群，真人即時回覆。高顏值肉體展示，今晚就能約。尊重同意、匿名保密，絕對安全放心。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="static/css/css2.css" rel="stylesheet">
+    <link href="static/css/styles.css" rel="stylesheet">
 
-        .background-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            max-width: 100%;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
 
-        .background-image.loaded {
-            opacity: 1;
-        }
-
-        .cta-button {
-            position: absolute;
-            bottom: 17%;
-            left: 50%;
-            transform: translateX(-50%);
-            cursor: pointer;
-            animation: pulse 1.5s ease-in-out infinite;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-            filter: drop-shadow(0 8px 20px rgba(255, 215, 0, 0.3));
-            display: block;
-            text-decoration: none;
-            opacity: 0;
-            
-            /* Button Styling */
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF8C00 100%);
-            border-radius: 36.75px;
-            padding: 8.4px 16.8px;
-            color: white;
-            font-family: 'Impact', 'Arial Black', 'Helvetica', sans-serif;
-            font-size: 27.3px;
-            font-weight: 900;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
-            border: none;
-            white-space: nowrap;
-            width: auto;
-            text-rendering: optimizeLegibility;
-            -webkit-font-smoothing: antialiased;
-            -webkit-text-stroke: 0.3px;
-        }
-
-        .cta-button.show {
-            opacity: 1;
-        }
-
-        .cta-button:hover {
-            transform: translateX(-50%) scale(1.1) translateY(-5px);
-            filter: drop-shadow(0 12px 25px rgba(255, 215, 0, 0.5));
-            box-shadow: 0 12px 25px rgba(255, 215, 0, 0.5);
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: translateX(-50%) scale(1);
-            }
-            50% {
-                transform: translateX(-50%) scale(1.05);
-            }
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) and (min-width: 481px) {
-            .image-container {
-                max-width: 100%;
-            }
-            .cta-button {
-                bottom: 12%;
-                font-size: 25.2px;
-                padding: 6.3px 14.7px;
-                border-radius: 36.75px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .image-container {
-                max-width: 100%;
-            }
-            .cta-button {
-                bottom: 12%;
-                font-size: 32px;
-                padding: 6px 14px;
-                border-radius: 36.75px;
-            }
-        }
-    </style>
 </head>
 <body>
-    <div class="image-container">
-        <img src="https://page.gensparksite.com/v1/base64_upload/fe9708dc56662fa55ac259cb354339b0" alt="HengOngBet Welcome Bonus" class="background-image" onload="imageLoaded()">
-        <a href="https://hob07.wasap.my" target="_blank" class="cta-button" id="ctaButton">
-            🎁 claim bonus 🎁
+<header class="site-header">
+    <div class="container header__inner">
+        <a href="https://a.xj3lm7xc0j.top" onclick="addCartEvent()" class="brand">
+            <span class="brand__logo">💗</span>
+            <span class="brand__name">緣愛</span>
         </a>
+        <a class="btn btn--line" href="https://a.xj3lm7xc0j.top" onclick="addCartEvent()"><img
+                src="static/picture/line.png" alt="LINE" class="btn-icon">立即約炮</a>
     </div>
+</header>
 
-    <script>
-        // Lead事件追踪函数
-        function trackLead() {
-            if (typeof fbq !== 'undefined') {
-                fbq('track', 'Lead', {
-                    content_name: 'HengOngBet CTA Click',
-                    content_category: 'Gaming',
-                    value: 1
-                });
-                console.log('Lead event tracked');
-            }
-        }
+<main>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container hero__grid">
+            <div class="hero__copy">
+                <h1>極致肉慾・深夜約會</h1>
+                <p class="subtitle">今晚就能上｜真人肉體｜越約越刺激，隨叫隨到</p>
+                <ul class="hero__badges">
+                    <li>18+ 成人約會</li>
+                    <li>真人約見</li>
+                    <li>匿名保密</li>
+                </ul>
+                <div class="cta-panel">
+                    <div class="filters">
+                        <div>
+                            <div class="label">🎂 年齡偏好</div>
+                            <div class="chips" data-filter="age">
+                                <button class="chip is-active" data-value="全部">全部</button>
+                                <button class="chip" data-value="18-25歲">18-25歲</button>
+                                <button class="chip" data-value="26-35歲">26-35歲</button>
+                                <button class="chip" data-value="35歲以上">35歲以上</button>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="label">✨ 性癖類型</div>
+                            <div class="chips" data-filter="style">
+                                <button class="chip is-active" data-value="全部">全部</button>
+                                <button class="chip" data-value="甜美可愛">甜美騷貨</button>
+                                <button class="chip" data-value="性感妩媚">性感尤物</button>
+                                <button class="chip" data-value="清純優雅">清純女神</button>
+                                <button class="chip" data-value="成熟知性">熟女人妻</button>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="label">💪 身材類型</div>
+                            <div class="chips" data-filter="body">
+                                <button class="chip is-active" data-value="全部">全部</button>
+                                <button class="chip" data-value="苗條">苗條</button>
+                                <button class="chip" data-value="豐滿">豐滿</button>
+                                <button class="chip" data-value="健美">健美</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cta-panel__row" style="margin-top: 12px;">
+                        <a href="https://a.xj3lm7xc0j.top" onclick="addCartEvent()">
+                            <button class="btn btn--primary btn--xl">
+                                <img src="static/picture/line.png" alt="LINE" class="btn-icon">加LINE立即约炮
+                            </button>
+                        </a>
+                    </div>
+                    <p class="hint">選好口味後，自動配對最適合你的肉體，今晚就能約。</p>
+                </div>
+            </div>
+            <div class="hero__visual">
+                <div class="portrait-stack">
+                    <div class="portrait-card portrait-card--a">
+                        <img src="static/picture/11.jpg" alt="高顏值女生 1" class="portrait" loading="lazy">
+                        <div class="portrait-label" aria-hidden="true">N/A</div>
+                    </div>
+                    <div class="portrait-card portrait-card--b">
+                        <img src="static/picture/22.jpg" alt="高顏值女生 2" class="portrait" loading="lazy">
+                        <div class="portrait-label" aria-hidden="true">N/A</div>
+                    </div>
+                    <div class="portrait-card portrait-card--c">
+                        <img src="static/picture/33.jpg" alt="高顏值女生 3" class="portrait" loading="lazy">
+                        <div class="portrait-label" aria-hidden="true">N/A</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        // Contact事件追踪函数
-        function trackContact() {
-            if (typeof fbq !== 'undefined') {
-                fbq('track', 'Contact', {
-                    content_name: 'HengOngBet WhatsApp Contact',
-                    content_category: 'Gaming',
-                    contact_method: 'WhatsApp'
-                });
-                console.log('Contact event tracked');
-            }
-        }
+    <!-- Gallery -->
+    <section class="gallery">
+        <div class="container">
+            <h2>真人肉體・露骨展示</h2>
+            <p class="section-sub">👉 左右滑動查看更多。約過的都說爽。</p>
+        </div>
+        <div class="gallery__slider" id="gallerySlider">
+            <figure class="gallery-card"><img src="static/picture/11.jpg" alt="女生照片 4" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/22.jpg" alt="女生照片 5" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/33.jpg" alt="女生照片 6" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/44.jpg" alt="女生照片 7" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <!--<figure class="gallery-card"><img src="static/picture/11.jpg" alt="女生照片 8" loading="lazy">-->
+            <!--    <figcaption class="gallery-caption">N/A</figcaption>-->
+            <!--</figure>-->
+            <figure class="gallery-card"><img src="static/picture/22.jpg" alt="女生照片 9" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/2.jpg" alt="女生照片 10" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/3.jpg" alt="女生照片 11" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/4.jpg" alt="女生照片 12" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/5.jpg" alt="女生照片 13" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/6.jpg" alt="女生照片 14" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/7.jpg" alt="女生照片 15" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/8.jpg" alt="女生照片 16" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/9.jpg" alt="女生照片 17" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/10.jpg" alt="女生照片 18" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/11.jpg" alt="女生照片 19" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/12.jpg" alt="女生照片 20" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/13.jpg" alt="女生照片 21" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/14.jpg" alt="女生照片 22" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/15.jpg" alt="女生照片 23" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/16.jpg" alt="女生照片 24" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/17.jpg" alt="女生照片 25" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/18.jpg" alt="女生照片 26" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/19.jpg" alt="女生照片 27" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/20.jpg" alt="女生照片 28" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/21.jpg" alt="女生照片 29" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/22.jpg" alt="女生照片 30" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/23.jpg" alt="女生照片 31" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/24.jpg" alt="女生照片 32" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/25.jpg" alt="女生照片 33" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/26.jpg" alt="女生照片 34" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/27.jpg" alt="女生照片 35" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/28.jpg" alt="女生照片 36" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/29.jpg" alt="女生照片 37" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/30.jpg" alt="女生照片 38" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/31.jpg" alt="女生照片 39" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/32.jpg" alt="女生照片 40" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/33.jpg" alt="女生照片 41" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/34.jpg" alt="女生照片 42" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+            <figure class="gallery-card"><img src="static/picture/more/35.jpg" alt="女生照片 43" loading="lazy">
+                <figcaption class="gallery-caption">N/A</figcaption>
+            </figure>
+        </div>
+    </section>
 
-        function imageLoaded() {
-            const img = document.querySelector('.background-image');
-            const ctaButton = document.getElementById('ctaButton');
-            
-            // 显示图片和按钮
-            img.classList.add('loaded');
-            setTimeout(() => {
-                ctaButton.classList.add('show');
-            }, 100);
-            
-            // 添加事件追踪到CTA按钮
-            ctaButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // 触发Lead和Contact事件
-                trackLead();
-                trackContact();
-                
-                // 等待事件发送后再跳转
-                setTimeout(function() {
-                    window.open('https://hob07.wasap.my', '_blank');
-                }, 150);
+    <!-- Features -->
+    <section class="features">
+        <div class="container features__grid">
+            <div class="feature">
+                <div class="feature__icon">🔥</div>
+                <h3>男人的極樂天堂</h3>
+                <p>100% 懂你性癖，不廢話直接約。今晚幹誰你決定。</p>
+            </div>
+            <div class="feature">
+                <div class="feature__icon">🔒</div>
+                <h3>匿名約會，絕對保密</h3>
+                <p>雙方匿名安全，約完即走不糾纏。偷吃也不怕被抓包。</p>
+            </div>
+            <div class="feature">
+                <div class="feature__icon">✅</div>
+                <h3>真人約見，保證實戰</h3>
+                <p>拒絕照騙與機器人，人工嚴選真實肉體。約到真的幹得到。</p>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 5px 10px;" class="features">
+
+        <div class="media-grid">
+            <div class="video-card"
+                 style="opacity: 1; transform: translateY(0px); transition: opacity 0.55s cubic-bezier(0.2, 0.9, 0.4, 1), transform 0.5s;">
+                <div class="media-wrapper">
+                    <video autoplay="" muted="" loop="" playsinline="" disablepictureinpicture="">
+                        <source src="static/picture/11.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+            </div>
+            <div class="video-card"
+                 style="opacity: 1; transform: translateY(0px); transition: opacity 0.55s cubic-bezier(0.2, 0.9, 0.4, 1), transform 0.5s;">
+                <div class="media-wrapper">
+                    <video autoplay="" muted="" loop="" playsinline="" disablepictureinpicture="">
+                        <source src="static/picture/22.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <section class="cta">
+        <div class="container cta__card">
+            <h2>準備好幹一發了嗎？💗</h2>
+            <p>今晚就能約到真人肉體，立刻加入 LINE 開始你的極樂之旅。</p>
+            <a href="https://a.xj3lm7xc0j.top" onclick="addCartEvent()">
+                <button class="btn btn--primary btn--xl btn--pulse">
+                    <img src="static/picture/line.png" alt="LINE" class="btn-icon">加 LINE 立即約炮
+                </button>
+            </a>
+            <p class="hint">溫馨提醒：僅限雙方同意之成人約會，請尊重彼此界限。</p>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer__grid">
+        <div>
+            <div class="brand brand--footer"><span class="brand__logo">💗</span><span
+                    class="brand__name">Secret Match</span></div>
+            <p class="footer__text">台灣頂級約炮社群。成人限定，匿名保密，今晚就能約。</p>
+        </div>
+
+    </div>
+    <div class="container footer__legal">
+        <p>
+            法律聲明：本平台僅提供成人約會配對服務，不涉及金錢交易。所有約會均為雙方自願同意，請遵守中華民國法律，尊重彼此意願與界限。
+        </p>
+    </div>
+</footer>
+
+<div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<script>
+    (function () {
+        const videos = document.querySelectorAll('video');
+        const enableAutoPlay = () => {
+            videos.forEach(v => {
+                v.muted = true;
+                v.setAttribute('playsinline', '');
+                v.play().catch(e => console.log('playback prevented, but interaction ready'));
             });
-        }
-
-        // 预加载图片确保加载完成
-        window.addEventListener('load', function() {
-            const img = document.querySelector('.background-image');
-            if (img.complete) {
-                imageLoaded();
+        };
+        enableAutoPlay();
+        let playAttempt = false;
+        const tryPlayOnUserAction = () => {
+            if (!playAttempt) {
+                videos.forEach(v => {
+                    v.muted = true;
+                    v.play().catch(() => {
+                    });
+                });
+                playAttempt = true;
+                document.removeEventListener('click', tryPlayOnUserAction);
+                document.removeEventListener('touchstart', tryPlayOnUserAction);
             }
+        };
+        document.addEventListener('click', tryPlayOnUserAction);
+        document.addEventListener('touchstart', tryPlayOnUserAction);
+        const mediaItems = document.querySelectorAll('.video-card, .image-card');
+        mediaItems.forEach((el, idx) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(18px)';
+            el.style.transition = 'opacity 0.55s cubic-bezier(0.2, 0.9, 0.4, 1), transform 0.5s ease';
+            setTimeout(() => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }, idx * 70);
         });
-    </script>
+    })();
+</script>
+
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"81b497cec7e44f6896f2751c0b58c769","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
