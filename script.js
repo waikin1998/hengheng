@@ -6,3 +6,11 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 });
+
+document.querySelectorAll(".hero-whatsapp-cta, .real-cta").forEach((link) => {
+  link.addEventListener("click", () => {
+    if (typeof window.fbq === "function") {
+      window.fbq("track", "CompleteRegistration");
+    }
+  });
+});
